@@ -3,7 +3,7 @@ const { ethers } = require("hardhat");
 
 describe("Market", function () {
   let usdt, market, myNft, account1, account2;
-  let baseURI = "https://sameple.com/";
+  let baseURI = "https://slz.com/";
 
   beforeEach(async () => {
     [account1, account2] = await ethers.getSigners();
@@ -12,7 +12,7 @@ describe("Market", function () {
     usdt = await USDT.deploy();
     const MyNFT = await ethers.getContractFactory("MyNFT");
     myNft = await MyNFT.deploy();
-    const Market = await ethers.getContractFactory("Market");
+    const Market = await ethers.getContractFactory("NFTMarket");
     market = await Market.deploy(usdt.target, myNft.target);
     // console.log(account1)
 
